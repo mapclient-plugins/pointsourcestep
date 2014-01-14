@@ -25,6 +25,9 @@ class PointSourceStep(WorkflowStepMountPoint):
         # Add any other initialisation code here:
         # Ports:
         self.addPort(('http://physiomeproject.org/workflow/1.0/rdf-schema#port',
+                      'http://physiomeproject.org/workflow/1.0/rdf-schema#uses',
+                      'String'))
+        self.addPort(('http://physiomeproject.org/workflow/1.0/rdf-schema#port',
                       'http://physiomeproject.org/workflow/1.0/rdf-schema#provides',
                       'ju#pointcoordinates'))
         self._config = {}
@@ -32,6 +35,7 @@ class PointSourceStep(WorkflowStepMountPoint):
         self._config['Filename'] = ''
 
         self._points = None
+        self._filename = None
 
 
     def execute(self):
@@ -41,8 +45,17 @@ class PointSourceStep(WorkflowStepMountPoint):
         may be connected up to a button in a widget for example.
         '''
         # Put your execute step code here before calling the '_doneExecution' method.
-        self._points = np.loadtxt(self._config['Filename'], dtype=float)
+        if self._filename == None:
+            filename = self._config['Filename']
+        else:
+            filename = self._filename
+
+        self._points = np.loadtxt(filename, dtype=float)
         self._doneExecution()
+
+    def setPortData(self, index, dataIn):
+        if index==0:
+            self._filename = dataIn
 
     def getPortData(self, index):
         '''
