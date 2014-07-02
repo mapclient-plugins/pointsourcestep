@@ -7,8 +7,8 @@ import os
 from PySide import QtGui
 from PySide import QtCore
 
-from mountpoints.workflowstep import WorkflowStepMountPoint
-from pointsourcestep.configuredialog import ConfigureDialog
+from mapclient.mountpoints.workflowstep import WorkflowStepMountPoint
+from mapclientplugins.pointsourcestep.configuredialog import ConfigureDialog
 
 import numpy as np
 
@@ -50,7 +50,7 @@ class PointSourceStep(WorkflowStepMountPoint):
         else:
             filename = self._filename
 
-        self._points = np.loadtxt(filename, dtype=float)
+        self._points = np.loadtxt(filename, dtype=float, usecols=(1,2,3,))
         self._doneExecution()
 
     def setPortData(self, index, dataIn):
