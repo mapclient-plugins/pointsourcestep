@@ -29,7 +29,7 @@ class PointSourceStep(WorkflowStepMountPoint):
                       'string'))
         self.addPort(('http://physiomeproject.org/workflow/1.0/rdf-schema#port',
                       'http://physiomeproject.org/workflow/1.0/rdf-schema#provides',
-                      'ju#pointcoordinates'))
+                      'http://physiomeproject.org/workflow/1.0/rdf-schema#pointcloud'))
         self._config = {}
         self._config['identifier'] = ''
         self._config['Filename'] = ''
