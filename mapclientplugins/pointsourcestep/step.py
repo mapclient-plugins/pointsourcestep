@@ -29,10 +29,13 @@ class PointSourceStep(WorkflowStepMountPoint):
                       'string'))
         self.addPort(('http://physiomeproject.org/workflow/1.0/rdf-schema#port',
                       'http://physiomeproject.org/workflow/1.0/rdf-schema#provides',
-                      'ju#pointcoordinates'))
+                      'http://physiomeproject.org/workflow/1.0/rdf-schema#pointcloud'))
         self._config = {}
         self._config['identifier'] = ''
         self._config['Filename'] = ''
+        self._config['x_column'] = '0'
+        self._config['y_column'] = '1'
+        self._config['z_column'] = '2'
 
         self._points = None
         self._filename = None
@@ -50,7 +53,11 @@ class PointSourceStep(WorkflowStepMountPoint):
         else:
             filename = self._filename
 
-        self._points = np.loadtxt(filename, dtype=float, usecols=(1,2,3,))
+        cols = (int(self._config['x_column']),
+                int(self._config['y_column']),
+                int(self._config['z_column']),
+                )
+        self._points = np.loadtxt(filename, dtype=float, usecols=cols)
         self._doneExecution()
 
     def setPortData(self, index, dataIn):
@@ -63,7 +70,7 @@ class PointSourceStep(WorkflowStepMountPoint):
         The index is the index of the port in the port list.  If there is only one
         provides port for this step then the index can be ignored.
         '''
-        return self._points # ju#pointcoordinates
+        return self._points # pointcloud
 
     def configure(self):
         '''
@@ -110,6 +117,9 @@ class PointSourceStep(WorkflowStepMountPoint):
         conf.beginGroup('config')
         conf.setValue('identifier', self._config['identifier'])
         conf.setValue('Filename', self._config['Filename'])
+        conf.setValue('x_column', self._config['x_column'])
+        conf.setValue('y_column', self._config['y_column'])
+        conf.setValue('z_column', self._config['z_column'])
         conf.endGroup()
 
 
@@ -125,6 +135,9 @@ class PointSourceStep(WorkflowStepMountPoint):
         conf.beginGroup('config')
         self._config['identifier'] = conf.value('identifier', '')
         self._config['Filename'] = conf.value('Filename', '')
+        self._config['x_column'] = conf.value('x_column', '0')
+        self._config['y_column'] = conf.value('y_column', '1')
+        self._config['z_column'] = conf.value('z_column', '2')
         conf.endGroup()
 
         d = ConfigureDialog()

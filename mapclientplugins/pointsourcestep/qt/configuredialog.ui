@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ConfigureDialog</class>
+ <class>Dialog</class>
  <widget class="QDialog" name="Dialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>418</width>
-    <height>303</height>
+    <height>228</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ConfigureDialog</string>
+   <string>Configure Point Source Step</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -21,25 +21,84 @@
      </property>
      <layout class="QFormLayout" name="formLayout">
       <item row="0" column="0">
-       <widget class="QLabel" name="label0">
+       <widget class="QLabel" name="idLabel">
         <property name="text">
-         <string>identifier:  </string>
+         <string>Identifier:  </string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit0"/>
+       <widget class="QLineEdit" name="idLineEdit"/>
       </item>
-
       <item row="1" column="0">
-       <widget class="QLabel" name="label1">
+       <widget class="QLabel" name="fileLocLabel">
         <property name="text">
          <string>Filename:  </string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="lineEdit1"/>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLineEdit" name="fileLocLineEdit"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="fileLocButton">
+          <property name="text">
+           <string>...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="colLabel">
+        <property name="text">
+         <string>Columns:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="colXLabel">
+          <property name="text">
+           <string>X</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="colXSpinBox"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="colYLabel">
+          <property name="text">
+           <string>Y</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="colYSpinBox">
+          <property name="value">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="colZLabel">
+          <property name="text">
+           <string>Z</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="colZSpinBox">
+          <property name="value">
+           <number>2</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
@@ -56,37 +115,46 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>idLineEdit</tabstop>
+  <tabstop>fileLocLineEdit</tabstop>
+  <tabstop>fileLocButton</tabstop>
+  <tabstop>colXSpinBox</tabstop>
+  <tabstop>colYSpinBox</tabstop>
+  <tabstop>colZSpinBox</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>ConfigureDialog</receiver>
+   <receiver>Dialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>208</x>
+     <y>280</y>
     </hint>
     <hint type="destinationlabel">
-     <x>157</x>
-     <y>274</y>
+     <x>208</x>
+     <y>151</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>ConfigureDialog</receiver>
+   <receiver>Dialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>208</x>
+     <y>280</y>
     </hint>
     <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
+     <x>208</x>
+     <y>151</y>
     </hint>
    </hints>
   </connection>
