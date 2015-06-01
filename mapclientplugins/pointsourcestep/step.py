@@ -36,7 +36,7 @@ class PointSourceStep(WorkflowStepMountPoint):
     def __init__(self, location):
         super(PointSourceStep, self).__init__('Point Source', location)
         self._configured = False # A step cannot be executed until it has been configured.
-        self._category = 'Input'
+        self._category = 'Source'
         # Add any other initialisation code here:
         # Ports:
         self.addPort(('http://physiomeproject.org/workflow/1.0/rdf-schema#port',
