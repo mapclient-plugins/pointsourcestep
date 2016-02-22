@@ -47,6 +47,8 @@ class ConfigureDialog(QtGui.QDialog):
         # We will use this method to decide whether the identifier is unique.
         self.identifierOccursCount = None
 
+        self._location = None
+
         self._makeConnections()
 
     def _makeConnections(self):
@@ -87,7 +89,7 @@ class ConfigureDialog(QtGui.QDialog):
         else:
             self._ui.idLineEdit.setStyleSheet(INVALID_STYLE_SHEET)
 
-        fileLocValid = os.path.exists(self._ui.fileLocLineEdit.text())
+        fileLocValid = os.path.exists(os.path.join(self._location, self._ui.fileLocLineEdit.text()))
         if fileLocValid:
             self._ui.fileLocLineEdit.setStyleSheet(DEFAULT_STYLE_SHEET)
         else:
@@ -129,11 +131,14 @@ class ConfigureDialog(QtGui.QDialog):
         self._ui.colYSpinBox.setValue(int(config['y_column']))
         self._ui.colZSpinBox.setValue(int(config['z_column']))
 
+    def setWorkflowLocation(self, location):
+        self._location = location
+
     def _fileLocClicked(self):
         location = QtGui.QFileDialog.getOpenFileName(self, 'Select File Location', self._previousFileLoc)
         if location[0]:
             self._previousFileLoc = location[0]
-            self._ui.fileLocLineEdit.setText(location[0])
+            self._ui.fileLocLineEdit.setText(os.path.relpath(location[0], self._location))
 
     def _fileLocEdited(self):
         self.validate()
