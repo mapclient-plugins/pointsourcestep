@@ -26,6 +26,7 @@ from mapclientplugins.pointsourcestep.configuredialog import ConfigureDialog
 
 import numpy as np
 
+
 class PointSourceStep(WorkflowStepMountPoint):
     '''
     Skeleton step which is intended to be a helpful starting point
@@ -34,7 +35,7 @@ class PointSourceStep(WorkflowStepMountPoint):
 
     def __init__(self, location):
         super(PointSourceStep, self).__init__('Point Source', location)
-        self._configured = False # A step cannot be executed until it has been configured.
+        self._configured = False  # A step cannot be executed until it has been configured.
         self._category = 'Source'
         # Add any other initialisation code here:
         # Ports:
@@ -53,7 +54,6 @@ class PointSourceStep(WorkflowStepMountPoint):
 
         self._points = None
         self._filename = None
-
 
     def execute(self):
         '''
@@ -75,7 +75,7 @@ class PointSourceStep(WorkflowStepMountPoint):
         self._doneExecution()
 
     def setPortData(self, index, dataIn):
-        if index==0:
+        if index == 0:
             self._filename = dataIn
 
     def getPortData(self, index):
@@ -84,7 +84,7 @@ class PointSourceStep(WorkflowStepMountPoint):
         The index is the index of the port in the port list.  If there is only one
         provides port for this step then the index can be ignored.
         '''
-        return self._points # pointcloud
+        return self._points  # pointcloud
 
     def configure(self):
         '''
@@ -100,10 +100,10 @@ class PointSourceStep(WorkflowStepMountPoint):
         dlg.setConfig(self._config)
         dlg.validate()
         dlg.setModal(True)
-        
+
         if dlg.exec_():
             self._config = dlg.getConfig()
-        
+
         self._configured = dlg.validate()
         self._configuredObserver()
 
@@ -138,5 +138,3 @@ class PointSourceStep(WorkflowStepMountPoint):
         d.identifierOccursCount = self._identifierOccursCount
         d.setConfig(self._config)
         self._configured = d.validate()
-
-
