@@ -94,7 +94,7 @@ class PointSourceStep(WorkflowStepMountPoint):
         then set:
             self._configured = True
         '''
-        dlg = ConfigureDialog()
+        dlg = ConfigureDialog(self._main_window)
         dlg.setWorkflowLocation(self._location)
         dlg.identifierOccursCount = self._identifierOccursCount
         dlg.setConfig(self._config)
@@ -133,7 +133,7 @@ class PointSourceStep(WorkflowStepMountPoint):
         '''
         self._config.update(json.loads(string))
 
-        d = ConfigureDialog()
+        d = ConfigureDialog(self._main_window)
         d.setWorkflowLocation(self._location)
         d.identifierOccursCount = self._identifierOccursCount
         d.setConfig(self._config)
