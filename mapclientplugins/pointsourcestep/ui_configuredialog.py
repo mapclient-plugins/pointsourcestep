@@ -1,94 +1,134 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'qt/configuredialog.ui'
-#
-# Created: Tue May 12 12:09:56 2015
-#      by: pyside-uic 0.2.15 running on PySide 1.2.2
-#
-# WARNING! All changes made in this file will be lost!
+################################################################################
+## Form generated from reading UI file 'configuredialog.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
 
-from PySide import QtCore, QtGui
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
+        if not Dialog.objectName():
+            Dialog.setObjectName(u"Dialog")
         Dialog.resize(418, 228)
-        self.gridLayout = QtGui.QGridLayout(Dialog)
-        self.gridLayout.setObjectName("gridLayout")
-        self.configGroupBox = QtGui.QGroupBox(Dialog)
-        self.configGroupBox.setTitle("")
-        self.configGroupBox.setObjectName("configGroupBox")
-        self.formLayout = QtGui.QFormLayout(self.configGroupBox)
-        self.formLayout.setObjectName("formLayout")
-        self.idLabel = QtGui.QLabel(self.configGroupBox)
-        self.idLabel.setObjectName("idLabel")
-        self.formLayout.setWidget(0, QtGui.QFormLayout.LabelRole, self.idLabel)
-        self.idLineEdit = QtGui.QLineEdit(self.configGroupBox)
-        self.idLineEdit.setObjectName("idLineEdit")
-        self.formLayout.setWidget(0, QtGui.QFormLayout.FieldRole, self.idLineEdit)
-        self.fileLocLabel = QtGui.QLabel(self.configGroupBox)
-        self.fileLocLabel.setObjectName("fileLocLabel")
-        self.formLayout.setWidget(1, QtGui.QFormLayout.LabelRole, self.fileLocLabel)
-        self.horizontalLayout = QtGui.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.fileLocLineEdit = QtGui.QLineEdit(self.configGroupBox)
-        self.fileLocLineEdit.setObjectName("fileLocLineEdit")
+        self.gridLayout = QGridLayout(Dialog)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.configGroupBox = QGroupBox(Dialog)
+        self.configGroupBox.setObjectName(u"configGroupBox")
+        self.formLayout = QFormLayout(self.configGroupBox)
+        self.formLayout.setObjectName(u"formLayout")
+        self.idLabel = QLabel(self.configGroupBox)
+        self.idLabel.setObjectName(u"idLabel")
+
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.idLabel)
+
+        self.idLineEdit = QLineEdit(self.configGroupBox)
+        self.idLineEdit.setObjectName(u"idLineEdit")
+
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.idLineEdit)
+
+        self.fileLocLabel = QLabel(self.configGroupBox)
+        self.fileLocLabel.setObjectName(u"fileLocLabel")
+
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.fileLocLabel)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.fileLocLineEdit = QLineEdit(self.configGroupBox)
+        self.fileLocLineEdit.setObjectName(u"fileLocLineEdit")
+
         self.horizontalLayout.addWidget(self.fileLocLineEdit)
-        self.fileLocButton = QtGui.QPushButton(self.configGroupBox)
-        self.fileLocButton.setObjectName("fileLocButton")
+
+        self.fileLocButton = QPushButton(self.configGroupBox)
+        self.fileLocButton.setObjectName(u"fileLocButton")
+
         self.horizontalLayout.addWidget(self.fileLocButton)
-        self.formLayout.setLayout(1, QtGui.QFormLayout.FieldRole, self.horizontalLayout)
-        self.colLabel = QtGui.QLabel(self.configGroupBox)
-        self.colLabel.setObjectName("colLabel")
-        self.formLayout.setWidget(2, QtGui.QFormLayout.LabelRole, self.colLabel)
-        self.horizontalLayout_2 = QtGui.QHBoxLayout()
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.colXLabel = QtGui.QLabel(self.configGroupBox)
-        self.colXLabel.setObjectName("colXLabel")
+
+
+        self.formLayout.setLayout(1, QFormLayout.FieldRole, self.horizontalLayout)
+
+        self.colLabel = QLabel(self.configGroupBox)
+        self.colLabel.setObjectName(u"colLabel")
+
+        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.colLabel)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.colXLabel = QLabel(self.configGroupBox)
+        self.colXLabel.setObjectName(u"colXLabel")
+
         self.horizontalLayout_2.addWidget(self.colXLabel)
-        self.colXSpinBox = QtGui.QSpinBox(self.configGroupBox)
-        self.colXSpinBox.setObjectName("colXSpinBox")
+
+        self.colXSpinBox = QSpinBox(self.configGroupBox)
+        self.colXSpinBox.setObjectName(u"colXSpinBox")
+
         self.horizontalLayout_2.addWidget(self.colXSpinBox)
-        self.colYLabel = QtGui.QLabel(self.configGroupBox)
-        self.colYLabel.setObjectName("colYLabel")
+
+        self.colYLabel = QLabel(self.configGroupBox)
+        self.colYLabel.setObjectName(u"colYLabel")
+
         self.horizontalLayout_2.addWidget(self.colYLabel)
-        self.colYSpinBox = QtGui.QSpinBox(self.configGroupBox)
-        self.colYSpinBox.setProperty("value", 1)
-        self.colYSpinBox.setObjectName("colYSpinBox")
+
+        self.colYSpinBox = QSpinBox(self.configGroupBox)
+        self.colYSpinBox.setObjectName(u"colYSpinBox")
+        self.colYSpinBox.setValue(1)
+
         self.horizontalLayout_2.addWidget(self.colYSpinBox)
-        self.colZLabel = QtGui.QLabel(self.configGroupBox)
-        self.colZLabel.setObjectName("colZLabel")
+
+        self.colZLabel = QLabel(self.configGroupBox)
+        self.colZLabel.setObjectName(u"colZLabel")
+
         self.horizontalLayout_2.addWidget(self.colZLabel)
-        self.colZSpinBox = QtGui.QSpinBox(self.configGroupBox)
-        self.colZSpinBox.setProperty("value", 2)
-        self.colZSpinBox.setObjectName("colZSpinBox")
+
+        self.colZSpinBox = QSpinBox(self.configGroupBox)
+        self.colZSpinBox.setObjectName(u"colZSpinBox")
+        self.colZSpinBox.setValue(2)
+
         self.horizontalLayout_2.addWidget(self.colZSpinBox)
-        self.formLayout.setLayout(2, QtGui.QFormLayout.FieldRole, self.horizontalLayout_2)
+
+
+        self.formLayout.setLayout(2, QFormLayout.FieldRole, self.horizontalLayout_2)
+
+
         self.gridLayout.addWidget(self.configGroupBox, 0, 0, 1, 1)
-        self.buttonBox = QtGui.QDialogButtonBox(Dialog)
-        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
-        self.buttonBox.setObjectName("buttonBox")
+
+        self.buttonBox = QDialogButtonBox(Dialog)
+        self.buttonBox.setObjectName(u"buttonBox")
+        self.buttonBox.setOrientation(Qt.Horizontal)
+        self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
+
         self.gridLayout.addWidget(self.buttonBox, 1, 0, 1, 1)
 
+        QWidget.setTabOrder(self.idLineEdit, self.fileLocLineEdit)
+        QWidget.setTabOrder(self.fileLocLineEdit, self.fileLocButton)
+        QWidget.setTabOrder(self.fileLocButton, self.colXSpinBox)
+        QWidget.setTabOrder(self.colXSpinBox, self.colYSpinBox)
+        QWidget.setTabOrder(self.colYSpinBox, self.colZSpinBox)
+        QWidget.setTabOrder(self.colZSpinBox, self.buttonBox)
+
         self.retranslateUi(Dialog)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("accepted()"), Dialog.accept)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("rejected()"), Dialog.reject)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
-        Dialog.setTabOrder(self.idLineEdit, self.fileLocLineEdit)
-        Dialog.setTabOrder(self.fileLocLineEdit, self.fileLocButton)
-        Dialog.setTabOrder(self.fileLocButton, self.colXSpinBox)
-        Dialog.setTabOrder(self.colXSpinBox, self.colYSpinBox)
-        Dialog.setTabOrder(self.colYSpinBox, self.colZSpinBox)
-        Dialog.setTabOrder(self.colZSpinBox, self.buttonBox)
+        self.buttonBox.accepted.connect(Dialog.accept)
+        self.buttonBox.rejected.connect(Dialog.reject)
+
+        QMetaObject.connectSlotsByName(Dialog)
+    # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QtGui.QApplication.translate("Dialog", "Configure Point Source Step", None, QtGui.QApplication.UnicodeUTF8))
-        self.idLabel.setText(QtGui.QApplication.translate("Dialog", "Identifier:  ", None, QtGui.QApplication.UnicodeUTF8))
-        self.fileLocLabel.setText(QtGui.QApplication.translate("Dialog", "Filename:  ", None, QtGui.QApplication.UnicodeUTF8))
-        self.fileLocButton.setText(QtGui.QApplication.translate("Dialog", "...", None, QtGui.QApplication.UnicodeUTF8))
-        self.colLabel.setText(QtGui.QApplication.translate("Dialog", "Columns:", None, QtGui.QApplication.UnicodeUTF8))
-        self.colXLabel.setText(QtGui.QApplication.translate("Dialog", "X", None, QtGui.QApplication.UnicodeUTF8))
-        self.colYLabel.setText(QtGui.QApplication.translate("Dialog", "Y", None, QtGui.QApplication.UnicodeUTF8))
-        self.colZLabel.setText(QtGui.QApplication.translate("Dialog", "Z", None, QtGui.QApplication.UnicodeUTF8))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Configure Point Source Step", None))
+        self.configGroupBox.setTitle("")
+        self.idLabel.setText(QCoreApplication.translate("Dialog", u"Identifier:  ", None))
+        self.fileLocLabel.setText(QCoreApplication.translate("Dialog", u"Filename:  ", None))
+        self.fileLocButton.setText(QCoreApplication.translate("Dialog", u"...", None))
+        self.colLabel.setText(QCoreApplication.translate("Dialog", u"Columns:", None))
+        self.colXLabel.setText(QCoreApplication.translate("Dialog", u"X", None))
+        self.colYLabel.setText(QCoreApplication.translate("Dialog", u"Y", None))
+        self.colZLabel.setText(QCoreApplication.translate("Dialog", u"Z", None))
+    # retranslateUi
 
