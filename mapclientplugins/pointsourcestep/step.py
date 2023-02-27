@@ -18,6 +18,7 @@ This file is part of MAP Client. (http://launchpad.net/mapclient)
     along with MAP Client.  If not, see <http://www.gnu.org/licenses/>..
 """
 
+import os
 import json
 
 from mapclient.mountpoints.workflowstep import WorkflowStepMountPoint
@@ -63,9 +64,9 @@ class PointSourceStep(WorkflowStepMountPoint):
         """
         # Put your execute step code here before calling the '_doneExecution' method.
         if self._filename is None:
-            filename = self._config['Filename']
+            filename = os.path.join(self._location, self._config['Filename'])
         else:
-            filename = self._filename
+            filename = os.path.join(self._location, self._filename)
 
         cols = (int(self._config['x_column']),
                 int(self._config['y_column']),
