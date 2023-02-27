@@ -86,22 +86,16 @@ class ConfigureDialog(QtWidgets.QDialog):
         """
         # Determine if the current identifier is unique throughout the workflow
         # The identifierOccursCount method is part of the interface to the workflow framework.
-        idValue = self.identifierOccursCount(self._ui.idLineEdit.text())
-        idValid = (idValue == 0) or (idValue == 1 and self._previousIdentifier == self._ui.idLineEdit.text())
-        if idValid:
-            self._ui.idLineEdit.setStyleSheet(DEFAULT_STYLE_SHEET)
-        else:
-            self._ui.idLineEdit.setStyleSheet(INVALID_STYLE_SHEET)
+        id_value = self.identifierOccursCount(self._ui.idLineEdit.text())
+        id_valid = (id_value == 0) or (id_value == 1 and self._previousIdentifier == self._ui.idLineEdit.text())
+        self._ui.idLineEdit.setStyleSheet(DEFAULT_STYLE_SHEET if id_valid else INVALID_STYLE_SHEET)
 
-        fileLocValid = os.path.exists(os.path.join(self._location, self._ui.fileLocLineEdit.text()))
-        if fileLocValid:
-            self._ui.fileLocLineEdit.setStyleSheet(DEFAULT_STYLE_SHEET)
-        else:
-            self._ui.fileLocLineEdit.setStyleSheet(INVALID_STYLE_SHEET)
+        file_loc_valid = self._ui.fileLocLineEdit.text() and os.path.exists(os.path.join(self._location, self._ui.fileLocLineEdit.text()))
+        self._ui.fileLocLineEdit.setStyleSheet(DEFAULT_STYLE_SHEET if file_loc_valid else INVALID_STYLE_SHEET)
 
-        valid = idValid and fileLocValid
+        valid = id_valid and file_loc_valid
         # allow settings to be save as long as step id is valid
-        self._ui.buttonBox.button(QtWidgets.QDialogButtonBox.StandardButton.Ok).setEnabled(idValid)
+        self._ui.buttonBox.button(QtWidgets.QDialogButtonBox.StandardButton.Ok).setEnabled(id_valid)
 
         return valid
 
